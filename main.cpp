@@ -1,8 +1,8 @@
 #include<iostream>
 #include<string>
-#include<CAS.cpp>
-#include<DAG.cpp>
-#include<SHA.cpp>
+#include "CAS.h"
+#include "DAG.h"
+#include "SHA.h"
 #include<vector>
 #include<fstream>
 #include<algorithm>
@@ -15,11 +15,13 @@ int main(){
     bool commandcheck = false;
     int index =-1;
     for(int i=0;i<commands.size();i++){
-        if(s == commands[i]){
+        for(int j = 0;j<commands[i].size();j++){
+            if(s[j] == commands[i][j]){
             commandcheck = true;
          index = i;
         }
     }
+}
     if(!commandcheck){
         cout << "Command Not found: Check the command and then run it " << endl;
         return -1;
